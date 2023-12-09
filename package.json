@@ -2,7 +2,7 @@
   "name": "project-management-tool-backend",
   "version": "1.0.0",
   "description": "Node.js backend for a Project Management Tool with user authentication, project creation, and task management features.",
-  "main": "app.js",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
