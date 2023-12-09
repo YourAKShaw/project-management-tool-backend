@@ -1,0 +1,18 @@
+{
+  "name": "project-management-tool-backend",
+  "version": "1.0.0",
+  "description": "Node.js backend for a Project Management Tool with user authentication, project creation, and task management features.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "mongodb",
+    "jwt",
+    "project management"
+  ],
+  "author": "YourAKShaw",
+  "license": "ISC"
+}
