@@ -4,6 +4,8 @@
   "description": "Node.js backend for a Project Management Tool with user authentication, project creation, and task management features.",
   "main": "main.js",
   "scripts": {
+    "start": "node src/main.js",
+    "dev": "nodemon src/main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
