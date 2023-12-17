@@ -23,6 +23,7 @@
     "express": "^4.18.2",
     "http-errors": "^2.0.0",
     "jsonwebtoken": "^9.0.2",
+    "mongodb": "6.3",
     "mongoose": "^8.0.3",
     "node-emoji": "^2.1.3",
     "winston": "^3.11.0"
