@@ -1,7 +1,7 @@
 /* eslint-disable indent */
 /* eslint-disable require-jsdoc */
 import bcrypt from 'bcrypt';
-import UserRepository from '../repositories/UserRepository';
+import UserRepository from '../repositories/UserRepository.js';
 
 class UserService {
   constructor() {

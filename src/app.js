@@ -2,6 +2,7 @@ import 'dotenv/config';
 // eslint-disable-next-line object-curly-spacing
 import express, { json, urlencoded } from 'express';
 import createError from 'http-errors';
+import userRoutes from './routes/userRoutes.js';
 const app = express();
 
 app.get('/', (req, res) => {
@@ -28,5 +29,7 @@ app.use((err, req, res, next) => {
     },
   });
 });
+
+app.use('/api', userRoutes);
 
 export default app;

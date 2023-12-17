@@ -2,7 +2,7 @@
 /* eslint-disable object-curly-spacing */
 /* eslint-disable require-jsdoc */
 import 'dotenv/config';
-import mongoClient from '../dbClient';
+import mongoClient from '../dbClient.js';
 
 class UserRepository {
   constructor() {
