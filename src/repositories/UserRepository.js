@@ -11,6 +11,7 @@ class UserRepository {
 
   async connect() {
     this.db = this.client.db(this.dbName);
+    this.collection = this.db.collection('users');
   }
 
   async disconnect() {
@@ -18,23 +19,22 @@ class UserRepository {
   }
 
   async createUser(userEntity) {
-    const userCollection = this.db.collection('users');
-    const result = await userCollection.insertOne(userEntity);
+    const result = await this.collection.insertOne(userEntity);
     return result.insertedId;
   }
 
   async getUserById(userId) {
-    const userCollection = this.db.collection('users');
     // eslint-disable-next-line new-cap
-    return userCollection.findOne({ _id: ObjectId(userId) });
+    return this.collection.findOne({ _id: ObjectId(userId) });
   }
 
   async getUserByUsername(username) {
-    const userCollection = this.db.collection('users');
-    return userCollection.findOne({ username });
+    return this.collection.findOne({ username });
   }
 
-  // Additional methods for updating or deleting users, if needed
+  async getUserByEmail(email) {
+    return this.collection.findOne({ email });
+  }
 }
 
 export default UserRepository;
