@@ -1,6 +1,6 @@
-const app = require('./app');
-const mongoClient = require('./db');
-const logger = require('./common/logger');
+import app from './app.js';
+import mongoClient from './dbClient.js';
+import logger from './common/logger.js';
 
 const PORT = process.env.PORT || 3000;
 

@@ -1,16 +1,17 @@
-require('dotenv').config();
-const express = require('express');
-const createError = require('http-errors');
+import 'dotenv/config';
+// eslint-disable-next-line object-curly-spacing
+import express, { json, urlencoded } from 'express';
+import createError from 'http-errors';
 const app = express();
 
 app.get('/', (req, res) => {
   res.send('Hello, World!');
 });
 
-app.use(express.json());
+app.use(json());
 
 // eslint-disable-next-line object-curly-spacing
-app.use(express.urlencoded({ extended: true }));
+app.use(urlencoded({ extended: true }));
 
 // 404 handler
 app.use((req, res, next) => {
@@ -28,4 +29,4 @@ app.use((err, req, res, next) => {
   });
 });
 
-module.exports = app;
+export default app;
