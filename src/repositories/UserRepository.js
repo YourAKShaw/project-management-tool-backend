@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 /* eslint-disable object-curly-spacing */
 /* eslint-disable require-jsdoc */
 import 'dotenv/config';
@@ -34,6 +35,19 @@ class UserRepository {
 
   async getUserByEmail(email) {
     return this.collection.findOne({ email });
+  }
+
+  async updateUser(userId, updatedUserData) {
+    await this.collection.updateOne(
+      // eslint-disable-next-line new-cap
+      { _id: ObjectId(userId) },
+      { $set: updatedUserData },
+    );
+  }
+
+  async deleteUser(userId) {
+    // eslint-disable-next-line new-cap
+    await this.collection.deleteOne({ _id: ObjectId(userId) });
   }
 }
 
