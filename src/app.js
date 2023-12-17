@@ -13,6 +13,7 @@ app.use(json());
 
 // eslint-disable-next-line object-curly-spacing
 app.use(urlencoded({ extended: true }));
+app.use('/api', userRoutes);
 
 // 404 handler
 app.use((req, res, next) => {
@@ -29,7 +30,5 @@ app.use((err, req, res, next) => {
     },
   });
 });
-
-app.use('/api', userRoutes);
 
 export default app;
