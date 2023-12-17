@@ -3,3 +3,6 @@ node_modules
 
 # .vscode folder is used for storing the settings of the vscode editor.
 .vscode
+
+# environment variables
+.env
