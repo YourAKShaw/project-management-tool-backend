@@ -3,6 +3,7 @@
 /* eslint-disable require-jsdoc */
 import createUserSchema from '../schemas/createUser.schema.js';
 import UserService from '../services/UserService.js';
+import logger from '../common/logger.js';
 
 class UserController {
   static async createUser(req, res, next) {
