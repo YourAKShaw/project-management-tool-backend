@@ -8,15 +8,8 @@ class UserRepository {
   constructor() {
     this.client = mongoClient;
     this.dbName = process.env.DB_NAME;
-  }
-
-  async connect() {
     this.db = this.client.db(this.dbName);
     this.collection = this.db.collection('users');
-  }
-
-  async disconnect() {
-    await this.client.close();
   }
 
   async createUser(userEntity) {

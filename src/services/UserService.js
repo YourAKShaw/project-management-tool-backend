@@ -6,7 +6,6 @@ import UserRepository from '../repositories/UserRepository.js';
 class UserService {
   constructor() {
     this.userRepository = new UserRepository();
-    this.userRepository.connect();
   }
 
   async createUser(username, email, password, role) {

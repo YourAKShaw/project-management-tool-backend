@@ -17,8 +17,10 @@ class UserController {
         return res.status(400).json({ error: validationError.message });
       }
 
+      const userService = new UserService();
+
       // Business logic: Create user
-      const userId = await UserService.createUser(
+      const userId = await userService.createUser(
         username,
         email,
         password,
