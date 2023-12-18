@@ -2,6 +2,7 @@
 /* eslint-disable require-jsdoc */
 import bcrypt from 'bcrypt';
 import UserRepository from '../repositories/UserRepository.js';
+import userRoles from '../constants/roles.js';
 
 class UserService {
   constructor() {
@@ -14,7 +15,7 @@ class UserService {
       username,
       email,
       password: hashedPassword,
-      role,
+      role: role ? role : userRoles.GUEST,
     };
 
     const userId = await this.userRepository.createUser(userEntity);
