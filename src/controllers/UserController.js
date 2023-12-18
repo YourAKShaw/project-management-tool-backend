@@ -4,10 +4,13 @@
 import createUserSchema from '../schemas/createUser.schema.js';
 import UserService from '../services/UserService.js';
 import logger from '../common/logger.js';
+import createHttpError from 'http-errors';
 
 class UserController {
   static async createUser(req, res, next) {
     try {
+      const userService = new UserService();
+
       const { username, email, password, role } = req.body;
 
       // Validate request body
@@ -17,7 +20,27 @@ class UserController {
         return res.status(400).json({ error: validationError.message });
       }
 
-      const userService = new UserService();
+      let existingUser = await userService.getUserByUsername(username);
+
+      if (existingUser) {
+        const conflictError = createHttpError(
+          409,
+          `Username ${username} is already taken`,
+        );
+        logger.log('error', `Username ${username} is already taken`);
+        return next(conflictError);
+      }
+
+      existingUser = await userService.getUserByEmail(email);
+
+      if (existingUser) {
+        const conflictError = createHttpError(
+          409,
+          `Email ${email} is already registered`,
+        );
+        logger.log('error', `Email ${email} is already registered`);
+        return next(conflictError);
+      }
 
       // Business logic: Create user
       const userId = await userService.createUser(
